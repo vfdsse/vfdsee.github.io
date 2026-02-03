@@ -2,8 +2,30 @@
 <html>
 <head>
 <title> kaizer</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p> Hi</p>
+<nav>
+    <button class="menu-btn active" onclick="openSection(event, 'home')">Главная</button>
+    <button class="menu-btn" onclick="openSection(event, 'places')">Места</button>
+    <button class="menu-btn" onclick="openSection(event, 'routes')">Маршруты</button>
+</nav>
+
+<div class="container">
+    <!-- Секция: Главная -->
+    <div id="home" class="content-section active">
+        <h1>Добро пожаловать!</h1>
+    </div>
+
+    <!-- Секция: Места -->
+    <div id="places" class="content-section">
+        <h1>Интересные места</h1>
+    </div>
+
+    <!-- Секция: Маршруты -->
+    <div id="routes" class="content-section">
+        <h1>маршруты</h1>
+    </div>
+</div>
 </body>
 </html>
