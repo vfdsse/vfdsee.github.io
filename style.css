@@ -1,0 +1,44 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+ nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center; /* Центрируем кнопки */
+            padding: 10px 0;
+        }
+
+.menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+
+.menu-btn:hover {
+            background-color: #555;
+        }
+.menu-btn.active {
+            background-color: #007bff;
+        }
+
+        /* Контейнер для контента */
+.container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+}
+ h1 {
+            color: #333;
+        }
