@@ -2,10 +2,10 @@ body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color:#FFEBCD ;
         }
  nav {
-            background-color: #333;
+            background-color:#DEB887;
             display: flex;
             justify-content: center; /* Центрируем кнопки */
             padding: 10px 0;
@@ -24,10 +24,10 @@ body {
         }
 
 .menu-btn:hover {
-            background-color: #555;
+            background-color: #DEB887;
         }
 .menu-btn.active {
-            background-color: #007bff;
+            background-color: #4B0082;
         }
 
         /* Контейнер для контента */
@@ -41,4 +41,5 @@ body {
 }
  h1 {
             color: #333;
+
         }
