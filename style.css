@@ -39,7 +39,190 @@ body {
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border-radius: 8px;
 }
- h1 {
-            color: #333;
+:root{
+    --bg: #FAEBD7;    /* фон (AntiqueWhite) */
+    --accent1: #DEB887; /* burlywood */
+    --accent2: #D2B48C; /* tan */
+    --link: #4682B4;   /* steelblue */
+    --card-bg: #fff;
+    --text-dark: #222;
+  }
 
-        }
+  html { scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg) 0%, #fff 300px);
+    color:var(--text-dark);
+    padding:20px;
+  }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  /* Список ссылок (оглавление) */
+  .toc {
+    background: linear-gradient(90deg, rgba(222,184,135,0.12), rgba(210,180,140,0.06));
+    border: 2px solid var(--accent1);
+    border-radius:10px;
+    padding:16px 18px;
+    margin-bottom:18px;
+  }
+  .toc h2{
+    margin:0 0 8px 0;
+    color:var(--link);
+  }
+  .toc ol{ margin:0; padding-left:18px; font-size:16px; }
+  .toc a{
+    color:var(--link);
+    text-decoration:none;
+    font-weight:600;
+  }
+  .toc a:hover{ text-decoration:underline; }
+
+  /* Основной блок статьи */
+  .section-card{
+    border: 2px solid var(--accent2);
+    border-radius:12px;
+    padding:18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), #fff);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    margin-bottom:22px;
+  }
+
+  /* Заголовок, выделенный в рамку и по центру - теперь ярче и кликабельный */
+  .section-title{
+    border: 4px solid var(--link);
+    background: linear-gradient(90deg, rgba(70,130,180,0.06), rgba(222,184,135,0.04));
+    padding:12px 16px;
+    border-radius:12px;
+    text-align:center;
+    margin:0 auto 16px auto;
+    max-width:920px;
+    color:var(--link);
+    font-size:20px;
+    font-weight:800;
+    box-shadow: 0 8px 18px rgba(70,130,180,0.12);
+  }
+  .section-title a.back-link{ color:inherit; text-decoration:none; display:inline-block; width:100%; padding:6px 0; }
+  .section-title a.back-link:hover{ opacity:0.9; text-decoration:underline; }
+
+  /* Структура: список ссылок слева и картинка справа (для первой секции) */
+  .media-row{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .left-col{
+    flex: 1 1 360px;
+    min-width:240px;
+  }
+  .right-col{
+    flex: 0 0 360px;
+    max-width:360px;
+  }
+
+  /* Список внутренних ссылок */
+  .inner-links{background: linear-gradient(90deg, rgba(70,130,180,0.04), rgba(222,184,135,0.02));
+    border:1px solid var(--accent2);
+    border-radius:8px;
+    padding:12px;
+    margin-bottom:12px;
+  }
+  .inner-links a{
+    display:block;
+    color:var(--link);
+    text-decoration:none;
+    padding:6px 0;
+    font-weight:600;
+  }
+  .inner-links a:hover{ text-decoration:underline; }
+
+  /* Рамка для картинки справа */
+  .photo-frame{
+    border:6px solid var(--accent1);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--card-bg);
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
+  }
+  .photo-frame img{ display:block; width:100%; height:auto; }
+
+  /* Два изображения справа сверху (стек/колонка) */
+  .two-photos{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:12px;
+  }
+
+  /* Стили заголовков подразделов (по центру) */
+  .subheading{
+    text-align:center;
+    margin:20px 0 12px 0;
+    color:var(--link);
+    font-size:18px;
+    font-weight:700;
+  }
+
+  .content-text{
+    line-height:1.6;
+    color:#222;
+  }
+
+  /* Блок с картинкой и текстом в середине (для исторической части) */
+  .img-left{
+    float:left;
+    margin:0 18px 12px 0;
+    width:280px;
+  }
+  .img-left img{ width:100%; border-radius:8px; border:4px solid var(--accent2); }
+
+  /* Для "Как добраться?" — список и сложная картинка/текстная строка */
+  .directions{
+    margin-top:12px;
+  }
+  .coords{
+    background: rgba(70,130,180,0.06);
+    border-left:4px solid var(--link);
+    padding:10px 12px;
+    border-radius:6px;
+    margin-bottom:12px;
+  }
+
+  .trip-row{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:12px;
+    flex-wrap:nowrap;
+  }
+  /* Поскольку нужно: справа картинка, слева немного текста, еще левее картинка и еще левее текст
+     — мы выстроим 4 колонок слева направо: textA | imgB | textB | imgA
+     Для удобства при узких экранах они просто перенесутся вертикально. */
+  .trip-row .col{
+    flex: 1 1 0;
+    min-width:120px;
+  }
+  .trip-row .col.img{ flex: 0 0 160px; max-width:160px; }
+  .trip-row img{ width:100%; border-radius:8px; border:4px solid var(--accent1); }
+
+  /* Мелкие декоративные стили */
+  ul{ margin:0 0 0 18px; padding:0; }
+  p { margin:0 0 12px 0; }
+  .clear { clear:both; }
+
+  @media (max-width:920px){.media-row{ flex-direction:column-reverse; } /* чтобы фото был вверху на мобилах */
+    .right-col{ max-width:100%; flex-basis:100%; }
+    .left-col{ flex-basis:100%; }
+    .img-left{ float:none; width:100%; margin:0 0 12px 0; }
+    .trip-row{ flex-wrap:wrap; }
+    .trip-row .col.img{ flex-basis:45%; max-width:45%; }
+    .trip-row .col{ min-width:45%; }
+  }
+
